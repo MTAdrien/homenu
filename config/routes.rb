@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "households#show"
-  
+  root to: "households#new"
+
   resources :households, only: [ :show, :new, :create, :update ] do
     resources :members, only: [ :new ]
   end
