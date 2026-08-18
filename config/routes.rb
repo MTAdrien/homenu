@@ -1,20 +1,7 @@
 Rails.application.routes.draw do
-  get "messages/create"
-  get "chats/show"
-  get "fridge_items/new"
-  get "fridge_items/create"
-  get "fridge_items/edit"
-  get "fridge_items/update"
-  get "fridge_items/destroy"
-  get "members/new"
-  get "households/new"
-  get "households/create"
-  get "households/show"
-  get "households/update"
   devise_for :users
-  devise_scope :user do
-  root to: "devise/registrations#new"
-  end
+  root to: "households#show"
+  
   resources :households, only: [ :show, :new, :create, :update ] do
     resources :members, only: [ :new ]
   end
