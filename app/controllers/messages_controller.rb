@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  SYSTEM_PROMPT = "You are a XXXXX.\n\n"
+  SYSTEM_PROMPT = "You are a family assistant.\n\nYou are in charge of managing and creating recipes and meal plans for the family."
 
   def create
     @chat = current_user.chats.find(params[:chat_id])
@@ -25,10 +25,10 @@ class MessagesController < ApplicationController
   end
 
   def household_context
-    "Here are the members of the household: #{@household.members}."
+    "Here are the members of the household: #{@household.members}.\n\n Here are the available items in the fridge #{@fridge_items.all}."
   end
 
   def instructions
-    [SYSTEM_PROMPT, challenge_context].compact.join("\n\n")
+    [SYSTEM_PROMPT, household_context].compact.join("\n\n")
   end
 end
