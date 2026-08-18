@@ -1,2 +1,115 @@
-<h1>Households#show</h1>
-<p>Find me in app/views/households/show.html.erb</p>
+<div class="household-page">
+
+  <!-- HEADER -->
+  <header class="household-header">
+    <div class="household-brand">
+      <%= image_tag "homenu_logo.png",
+                    alt: "HomeNu",
+                    class: "household-logo" %>
+
+      <span class="household-title">Household</span>
+    </div>
+
+    <div class="household-avatar">
+      <%= current_user.name.to_s.first.upcase %>
+    </div>
+  </header>
+
+
+  <!-- HOUSEHOLD -->
+  <section class="household-intro">
+    <h1 class="household-name">
+      <%= @household.name %>
+    </h1>
+
+    <p class="household-count">
+      ♙ <%= pluralize(@household.members.count, "member") %>
+    </p>
+  </section>
+
+
+  <!-- MEMBERS -->
+  <section class="household-section">
+
+    <p class="section-title">HOUSEHOLD</p>
+
+    <div class="household-members-card">
+
+      <div class="members-list">
+
+        <% @household.members.each do |member| %>
+
+          <div class="household-member">
+
+            <div class="member-avatar">
+              <%= member.user.name.to_s.first.upcase %>
+            </div>
+
+            <span class="member-name">
+              <%= member.user.name %>
+            </span>
+
+          </div>
+
+        <% end %>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUICK ACTIONS -->
+  <section class="household-section">
+
+    <p class="section-title">QUICK ACTIONS</p>
+
+
+    <!-- FRIDGE -->
+    <div class="quick-action-card">
+
+      <div class="quick-action-icon fridge-icon">
+        🧊
+      </div>
+
+      <div class="quick-action-content">
+        <h2>My Fridge</h2>
+
+        <p>
+          12 items · Milk is low
+        </p>
+      </div>
+
+      <div class="quick-action-arrow">
+        ›
+      </div>
+
+    </div>
+
+
+    <!-- AI -->
+    <div class="quick-action-card quick-action-ai">
+
+      <div class="quick-action-icon ai-icon">
+        ✨
+      </div>
+
+      <div class="quick-action-content">
+        <h2>Ask HomeNu AI</h2>
+
+        <p>
+          Get meal ideas from<br>
+          your fridge
+        </p>
+      </div>
+
+      <div class="quick-action-arrow">
+        →
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

@@ -1,0 +1,225 @@
+.household-page {
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px 28px 40px;
+  background-color: #fbf9f8;
+  color: #202020;
+}
+
+
+// HEADER
+
+.household-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 38px;
+}
+
+.household-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.household-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.household-title {
+  color: #3e6658;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.household-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #3e6658;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+// HOUSEHOLD INTRO
+
+.household-intro {
+  text-align: center;
+  margin-bottom: 46px;
+}
+
+.household-name {
+  margin-bottom: 4px;
+
+  color: #202020;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.household-count {
+  margin: 0;
+
+  color: #555;
+  font-size: 13px;
+}
+
+
+// GENERAL SECTIONS
+
+.household-section {
+  margin-bottom: 38px;
+}
+
+.section-title {
+  margin: 0 0 12px 6px;
+
+  color: #333;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+
+// MEMBERS
+
+.household-members-card {
+  padding: 20px 16px;
+
+  background-color: #f4f1ef;
+  border-radius: 24px;
+}
+
+.members-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.household-member {
+  min-width: 52px;
+  text-align: center;
+}
+
+.member-avatar {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 6px;
+
+  border: 3px solid white;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #3e6658;
+  color: white;
+
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.member-name {
+  color: #222;
+  font-size: 12px;
+}
+
+
+// QUICK ACTIONS
+
+.quick-action-card {
+  min-height: 88px;
+  margin-bottom: 16px;
+  padding: 16px;
+
+  display: flex;
+  align-items: center;
+
+  background-color: #e9e7e5;
+  border-radius: 22px;
+}
+
+.quick-action-icon {
+  width: 52px;
+  height: 52px;
+  margin-right: 16px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: white;
+  border-radius: 14px;
+
+  font-size: 23px;
+}
+
+.quick-action-content {
+  flex-grow: 1;
+}
+
+.quick-action-content h2 {
+  margin: 0 0 2px;
+
+  color: #202020;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.quick-action-content p {
+  margin: 0;
+
+  color: #555;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.quick-action-arrow {
+  margin-left: 10px;
+
+  font-size: 26px;
+  font-weight: 400;
+}
+
+
+// AI CARD
+
+.quick-action-ai {
+  min-height: 106px;
+
+  background-color: #3e6658;
+  color: white;
+
+  box-shadow: 0 6px 12px rgba(62, 102, 88, 0.18);
+}
+
+.quick-action-ai .quick-action-icon {
+  background-color: rgba(255, 255, 255, 0.17);
+}
+
+.quick-action-ai .quick-action-content h2 {
+  color: white;
+}
+
+.quick-action-ai .quick-action-content p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.quick-action-ai .quick-action-arrow {
+  color: white;
+}
