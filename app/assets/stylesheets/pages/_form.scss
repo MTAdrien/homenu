@@ -1,0 +1,54 @@
+.form-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fbf9f8;
+}
+
+.form-card {
+  width: 400px;
+  background-color: white;
+  padding: 32px;
+  border-radius: 20px;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.form-logo {
+  text-align: center;
+
+  img {
+    width: 80px;
+  }
+}
+
+.form-card .form-control {
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.form-card .btn {
+  width: 100%;
+  background-color: #3e6658;
+  color: white;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.form-links {
+  text-align: center;
+  margin-top: 20px;
+
+  a {
+    color: #3e6658;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
