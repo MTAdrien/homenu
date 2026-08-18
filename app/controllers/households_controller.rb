@@ -13,7 +13,6 @@ class HouseholdsController < ApplicationController
     if @household.save
       redirect_to @household, notice: "Foyer créé."
     else
-      puts @household.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
