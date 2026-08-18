@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   devise_scope :user do
   root to: "devise/registrations#new"
   end
+  resources :households, only: [ :show, :new, :create, :update ] do
+    resources :members, only: [ :new ]
+  end
+  resources :fridge_items, only: [ :new, :create, :edit, :update, :destroy ]
+
+  resources :chats, only: [ :show, :new, :create ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
