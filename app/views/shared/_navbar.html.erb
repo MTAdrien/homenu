@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item row">
+          <%= link_to household_path(@household), class: "navbar-brand" do %>
+            <i class="fa-solid fa-people-roof"></i>
+          <% end %>
+          <%# <%= link_to "Home", "#", class: "nav-link #{'active' if current_page?("#")}"%>
+        </li>
+        <li class="nav-item row">
+          <%= link_to household_path(@household), class: "navbar-brand" do %>
+            <i class="fa-solid fa-pizza-slice"></i>
+          <% end %>
+          <%# <%= link_to "Fridge", "#", class: "nav-link #{'active' if current_page?("#")}" %>
+
+          <%# Add fridge_items show to link it here %>
+
+
+        </li>
+        <li class="nav-item row">
+          <%# <%= link_to "Assistant", "#", class: "nav-link #{'active' if current_page?("#")}" %>
+          <%= link_to household_path(@household), class: "navbar-brand" do %>
+            <i class="fa-solid fa-robot"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
