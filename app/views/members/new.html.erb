@@ -1,2 +1,25 @@
-<h1>Members#new</h1>
-<p>Find me in app/views/members/new.html.erb</p>
+
+  <div class="form-container">
+    <div class="form-card">
+      <div class="form-header">
+        <div class="form-logo">
+          <%= image_tag "homenu_logo.png", alt: "HomeNu Logo" %>
+        </div>
+          <h1>Add your houshold members</h1>
+      </div>
+
+          <%= simple_form_for new_household_member_path do |f| %>
+              <%= f.error_notification %>
+
+              <div class="form-inputs">
+                <%= f.input :first_name %>
+
+                <%= f.input :role %>
+                </div>
+
+              <div class="form-actions">
+                <%= f.submit "Add member", class: "btn btn-primary w-100" %>
+              </div>
+          <% end %>
+    </div>
+  </div>
