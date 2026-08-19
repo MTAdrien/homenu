@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :fridge_items, only: [ :new, :create, :edit, :update, :destroy ]
 
   resources :chats, only: [ :show, :new, :create ] do
-    resources :messages, only: [ :create ]
+    resources :messages, only: [:new, :create ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
