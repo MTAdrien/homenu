@@ -1,0 +1,12 @@
+<%= simple_form_for [household, member] do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :role, collection: Member::ROLES, prompt: "Choisir un rôle" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Add member", class: "btn btn-primary w-100" %>
+  </div>
+<% end %>
