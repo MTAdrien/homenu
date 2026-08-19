@@ -1,16 +1,17 @@
 class HouseholdsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_household, only: [:show, :update]
-  
+
   def new
     @household = Household.new
   end
 
   def create
     @household = Household.new(household_params)
+    @household.user = current_user
     @household.users << current_user
     if @household.save
-      redirect_to @household, notice: "Foyer créé."
+      redirect_to new_household_member_path(@household), notice: "Foyer créé."
     else
       render :new, status: :unprocessable_entity
     end
