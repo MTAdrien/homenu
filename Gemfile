@@ -20,6 +20,7 @@ gem "sassc-rails"
 gem "bootstrap", "~> 5.3"
 gem "simple_form"
 gem "devise"
+gem "dotenv-rails"
 gem "font-awesome-sass"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
