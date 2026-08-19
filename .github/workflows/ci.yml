@@ -134,7 +134,7 @@ jobs:
         with:
           bundler-cache: true
 
-        - name: Run System Tests
+      - name: Run System Tests
         env:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/homenu_test
