@@ -22,6 +22,7 @@ gem "simple_form"
 gem "devise"
 gem "dotenv-rails"
 gem "font-awesome-sass"
+gem "cloudinary"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
@@ -58,7 +59,7 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-  gem "ruby_llm", "~> 1.2.0"
+  # gem "ruby_llm", "~> 1.2.0"
 end
 
 group :development do
