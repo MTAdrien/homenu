@@ -1,0 +1,9 @@
+<%= turbo_stream.append "members-list" do %>
+  <%= render @member %>
+<% end %>
+
+<%= turbo_stream.replace "member-form" do %>
+  <%= turbo_frame_tag "member-form" do %>
+    <%= render "form", household: @household, member: @household.members.new %>
+  <% end %>
+<% end %>
