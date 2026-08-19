@@ -11,12 +11,7 @@ class HouseholdsController < ApplicationController
     @household.user = current_user
 
     if @household.save
-      @household.members.create!(
-        user: current_user,
-        first_name: current_user.name.presence || current_user.email.split("@").first,
-        role: "admin"
-      )
-      redirect_to new_household_member_path(@household), notice: "Foyer créé."
+      redirect_to new_household_member_path(@household), notice: "Household created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +22,7 @@ class HouseholdsController < ApplicationController
 
   def update
     if @household.update(household_params)
-      redirect_to @household, notice: "Foyer mis à jour."
+      redirect_to @household, notice: "Household updated."
     else
       render :show, status: :unprocessable_entity
     end
