@@ -66,50 +66,30 @@
     <p class="section-title">QUICK ACTIONS</p>
 
 
-    <!-- FRIDGE -->
+    <!-- Suggest -->
     <div class="quick-action-card">
 
-      <div class="quick-action-icon fridge-icon">
-        🧊
+      <div class="quick-action-icon suggest">
+        <i class="fa-solid fa-utensils"></i>
       </div>
 
-      <div class="quick-action-content">
-        <h2>My Fridge</h2>
-
-        <p>
-          12 items · Milk is low
-        </p>
+      <div class="quick-action-suggest">
+        <h2>Next Meal</h2>
+        <p>Instant ideas based on your fridge</p>
       </div>
 
       <div class="quick-action-arrow">
         ›
       </div>
 
+        <%= image_tag "suggest-meal.png",
+              alt: "Meal suggestion",
+              class: "quick-action-image" %>
+              
     </div>
 
-
-    <!-- AI -->
-    <div class="quick-action-card quick-action-ai">
-
-      <div class="quick-action-icon ai-icon">
-        ✨
-      </div>
-
-      <div class="quick-action-content">
-        <h2>Ask HomeNu AI</h2>
-
-        <p>
-          Get meal ideas from<br>
-          your fridge
-        </p>
-      </div>
-
-      <div class="quick-action-arrow">
-        →
-      </div>
-
-    </div>
 
   </section>
 
+</div>
 </div>

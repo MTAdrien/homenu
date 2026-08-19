@@ -8,7 +8,6 @@
   color: #202020;
 }
 
-
 // HEADER
 
 .household-header {
@@ -52,7 +51,6 @@
   font-weight: 700;
 }
 
-
 // HOUSEHOLD INTRO
 
 .household-intro {
@@ -61,7 +59,7 @@
 }
 
 .household-name {
-  margin-bottom: 4px;
+  margin: 0 0 4px;
 
   color: #202020;
   font-size: 24px;
@@ -74,7 +72,6 @@
   color: #555;
   font-size: 13px;
 }
-
 
 // GENERAL SECTIONS
 
@@ -90,7 +87,6 @@
   font-weight: 600;
   letter-spacing: 0.04em;
 }
-
 
 // MEMBERS
 
@@ -128,34 +124,37 @@
   background-color: #3e6658;
   color: white;
 
-  font-weight: 700;
   font-size: 17px;
+  font-weight: 700;
 }
 
 .member-name {
+  display: block;
+
   color: #222;
   font-size: 12px;
 }
 
-
-// QUICK ACTIONS
+// QUICK ACTION
 
 .quick-action-card {
-  min-height: 88px;
-  margin-bottom: 16px;
-  padding: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 130px;
+  padding: 18px 16px;
 
   display: flex;
   align-items: center;
 
-  background-color: #e9e7e5;
+  background-color: #91c5b3;
   border-radius: 22px;
+
+  overflow: hidden;
 }
 
 .quick-action-icon {
-  width: 52px;
-  height: 52px;
-  margin-right: 16px;
+  width: 42px;
+  height: 42px;
 
   flex-shrink: 0;
 
@@ -163,63 +162,83 @@
   align-items: center;
   justify-content: center;
 
-  background-color: white;
-  border-radius: 14px;
-
-  font-size: 23px;
+  color: #35695a;
+  font-size: 22px;
 }
 
-.quick-action-content {
-  flex-grow: 1;
+.quick-action-suggest {
+  flex: 1;
+  padding: 0 8px;
+
+  text-align: center;
 }
 
-.quick-action-content h2 {
-  margin: 0 0 2px;
-
-  color: #202020;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.quick-action-content p {
+.quick-action-suggest h2 {
   margin: 0;
 
-  color: #555;
-  font-size: 13px;
-  line-height: 1.25;
+  color: #244f43;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.quick-action-suggest p {
+  max-width: 170px;
+  margin: 7px auto 0;
+
+  color: black;
+  font-size: 12px;
+  line-height: 1.3;
 }
 
 .quick-action-arrow {
-  margin-left: 10px;
+  width: 42px;
 
-  font-size: 26px;
+  flex-shrink: 0;
+
+  text-align: center;
+
+  color: #35695a;
+  font-size: 28px;
   font-weight: 400;
 }
 
+// MOBILE
 
-// AI CARD
+@media (max-width: 420px) {
+  .household-page {
+    max-width: none;
+    padding: 20px 22px 40px;
+  }
 
-.quick-action-ai {
-  min-height: 106px;
+  .household-name {
+    font-size: 22px;
+  }
 
-  background-color: #3e6658;
-  color: white;
+  .members-list {
+    gap: 14px;
+  }
 
-  box-shadow: 0 6px 12px rgba(62, 102, 88, 0.18);
+  .member-avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .quick-action-suggest h2,
+  .quick-action-suggest h3 {
+    font-size: 18px;
+  }
 }
 
-.quick-action-ai .quick-action-icon {
-  background-color: rgba(255, 255, 255, 0.17);
-}
+.quick-action-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  display: block;
+  object-position: center;
+  flex-basis: 100%;
 
-.quick-action-ai .quick-action-content h2 {
-  color: white;
-}
+  margin-top: 15px;
 
-.quick-action-ai .quick-action-content p {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.quick-action-ai .quick-action-arrow {
-  color: white;
+  border-radius: 0 0 16px 16px;
 }
