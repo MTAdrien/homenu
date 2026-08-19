@@ -16,9 +16,9 @@
     <%= turbo_frame_tag "member-form" do %>
       <%= render "form", household: @household, member: @member %>
     <% end %>
-    
+
     <div class="form-actions">
-      <%= link_to "Terminer", household_path(@household), class: "btn btn-primary w-100" %>
+      <%= link_to "Finish", household_path(@household), class: "btn btn-primary w-100" %>
     </div>
   </div>
 </div>
