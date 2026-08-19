@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_scope :user do
-  root to: "devise/registrations#new"
+  root to: "households#new"
+
+  resources :households, only: [ :show, :new, :create, :update ] do
+    resources :members, only: [:new, :create ]
+  end
+  resources :fridge_items, only: [ :new, :create, :edit, :update, :destroy ]
+
+  resources :chats, only: [ :show, :new, :create ] do
+    resources :messages, only: [:new, :create ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

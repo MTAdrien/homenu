@@ -10,14 +10,76 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_17_201030) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_19_091704) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "chats", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "household_id", null: false
+    t.string "name"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["household_id"], name: "index_chats_on_household_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
+
+  create_table "fridge_items", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.date "expiry_date"
+    t.bigint "household_id", null: false
+    t.string "name"
+    t.integer "quantity"
+    t.datetime "updated_at", null: false
+    t.index ["household_id"], name: "index_fridge_items_on_household_id"
+  end
+
+  create_table "households", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "invite_code"
+    t.string "name", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_households_on_user_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "first_name"
+    t.bigint "household_id", null: false
+    t.string "role"
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["household_id"], name: "index_members_on_household_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "chat_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.string "role"
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "household_id", null: false
+    t.text "instructions"
+    t.integer "prep_time"
+    t.integer "servings"
+    t.string "source"
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.index ["household_id"], name: "index_recipes_on_household_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name"
     t.datetime "remember_created_at"
     t.datetime "reset_password_sent_at"
     t.string "reset_password_token"
@@ -25,4 +87,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_17_201030) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
+  add_foreign_key "chats", "households"
+  add_foreign_key "chats", "users"
+  add_foreign_key "fridge_items", "households"
+  add_foreign_key "households", "users"
+  add_foreign_key "members", "households"
+  add_foreign_key "members", "users"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "recipes", "households"
 end

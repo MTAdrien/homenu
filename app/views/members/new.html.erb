@@ -1,0 +1,24 @@
+<div class="form-container">
+  <div class="form-card">
+    <div class="form-header">
+      <div class="form-logo">
+        <%= image_tag "homenu_logo.png", alt: "HomeNu Logo" %>
+      </div>
+      <h1>Add your household members</h1>
+    </div>
+
+    <ul id="members-list" class="members-list">
+      <% @household.members.each do |member| %>
+        <%= render member %>
+      <% end %>
+    </ul>
+
+    <%= turbo_frame_tag "member-form" do %>
+      <%= render "form", household: @household, member: @member %>
+    <% end %>
+    
+    <div class="form-actions">
+      <%= link_to "Terminer", household_path(@household), class: "btn btn-primary w-100" %>
+    </div>
+  </div>
+</div>

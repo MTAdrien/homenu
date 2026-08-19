@@ -1,0 +1,95 @@
+<div class="household-page">
+
+  <!-- HEADER -->
+  <header class="household-header">
+    <div class="household-brand">
+      <%= image_tag "homenu_logo.png",
+                    alt: "HomeNu",
+                    class: "household-logo" %>
+
+      <span class="household-title">Household</span>
+    </div>
+
+    <div class="household-avatar">
+      <%= current_user.name.to_s.first.upcase %>
+    </div>
+  </header>
+
+
+  <!-- HOUSEHOLD -->
+  <section class="household-intro">
+    <h1 class="household-name">
+      <%= @household.name %>
+    </h1>
+
+    <p class="household-count">
+      ♙ <%= pluralize(@household.members.count, "member") %>
+    </p>
+  </section>
+
+
+  <!-- MEMBERS -->
+  <section class="household-section">
+
+    <p class="section-title">HOUSEHOLD</p>
+
+    <div class="household-members-card">
+
+      <div class="members-list">
+
+        <% @household.members.each do |member| %>
+
+          <div class="household-member">
+
+            <div class="member-avatar">
+              <%= member.user.name.to_s.first.upcase %>
+            </div>
+
+            <span class="member-name">
+              <%= member.user.name %>
+            </span>
+
+          </div>
+
+        <% end %>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUICK ACTIONS -->
+  <section class="household-section">
+
+    <p class="section-title">QUICK ACTIONS</p>
+
+
+    <!-- Suggest -->
+    <div class="quick-action-card">
+
+      <div class="quick-action-icon suggest">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+
+      <div class="quick-action-suggest">
+        <h2>Next Meal</h2>
+        <p>Instant ideas based on your fridge</p>
+      </div>
+
+      <div class="quick-action-arrow">
+        ›
+      </div>
+
+        <%= image_tag "suggest-meal.png",
+              alt: "Meal suggestion",
+              class: "quick-action-image" %>
+              
+    </div>
+
+
+  </section>
+
+</div>
+</div>
