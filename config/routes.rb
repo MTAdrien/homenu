@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "households#new"
 
   resources :households, only: [ :show, :new, :create, :update ] do
-    resources :members, only: [ :new ]
+    resources :members, only: [:new, :create ]
   end
   resources :fridge_items, only: [ :new, :create, :edit, :update, :destroy ]
 

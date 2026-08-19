@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :households, through: :members
   has_many :created_households, class_name: "Household", foreign_key: "user_id", dependent: :destroy
   has_many :chats, dependent: :nullify
+  has_many :created_households, class_name: "Household", dependent: :destroy
 end

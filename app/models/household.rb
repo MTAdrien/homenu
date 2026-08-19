@@ -5,5 +5,6 @@ class Household < ApplicationRecord
   has_many :fridge_items, dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :recipes, dependent: :destroy
+
   validates :name, presence: true
 end
