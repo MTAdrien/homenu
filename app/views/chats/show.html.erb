@@ -33,66 +33,71 @@
   <!-- CONVERSATION -->
   <main class="chat-conversation">
 
-    <!-- USER MESSAGE PLACEHOLDER -->
-    <div class="chat-message-row-user">
+    <% @messages.each do |message| %>
 
-      <div class="chat-message-user">
-        What can we cook tonight?
-      </div>
+      <% if message.role == "user" %>
 
-      <span class="chat-time">
-        18:42
-      </span>
+        <div class="chat-message-row-user">
 
-    </div>
+          <div class="chat-message-user">
+            <%= message.content %>
+          </div>
 
+          <span class="chat-time">
+            <%= message.created_at.strftime("%H:%M") %>
+          </span>
 
-    <!-- ASSISTANT MESSAGE PLACEHOLDER -->
-    <div class="chat-assistant-row">
-
-      <div class="chat-ai-icon">
-        <i class="fa-solid fa-wand-magic-sparkles"></i>
-      </div>
-
-      <div class="chat-assistant-content">
-
-        <div class="chat-message-assistant">
-          I found a few ingredients in your fridge.
-          I can suggest a meal based on what you already have.
         </div>
 
-        <span class="chat-time">
-          18:43
-        </span>
+      <% elsif message.role == "assistant" %>
 
-      </div>
+        <div class="chat-assistant-row">
 
-    </div>
+          <div class="chat-ai-icon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+
+          <div class="chat-assistant-content">
+
+            <div class="chat-message-assistant">
+              <%= message.content %>
+            </div>
+
+            <span class="chat-time">
+              <%= message.created_at.strftime("%H:%M") %>
+            </span>
+
+          </div>
+
+        </div>
+
+      <% end %>
+
+    <% end %>
 
   </main>
 
 
-  <!-- MESSAGE INPUT PLACEHOLDER -->
+  <!-- MESSAGE FORM -->
   <section class="chat-composer">
 
-    <div class="input-group">
+  <%= form_with model: @message,
+                url: chat_messages_path(@chat),
+                method: :post,
+                data: { turbo: false },
+                class: "input-group" do |f| %>
 
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Ask a follow-up..."
-      >
+    <%= f.text_field :content,
+          class: "form-control",
+          placeholder: "Ask a follow-up..." %>
 
-      <button
-        class="btn chat-send-button"
-        type="button"
-      >
-        <i class="fa-solid fa-paper-plane"></i>
-      </button>
+    <%= f.button type: "submit",
+          class: "btn chat-send-button" do %>
+      <i class="fa-solid fa-paper-plane"></i>
+    <% end %>
 
-    </div>
+  <% end %>
 
-  </section>
-
+</section>
 
 </div>

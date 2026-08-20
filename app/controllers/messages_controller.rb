@@ -1,15 +1,32 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  SYSTEM_PROMPT = "You are a family assistant.\n\nYou are in charge of managing and creating recipes and meal plans for the family."
+  SYSTEM_PROMPT = "You are HomeNu, a family cooking assistant.
+
+    You help the household create recipes and meal plans.
+
+    You have access to a tool that reads the current household fridge.
+    When the user asks what is in the fridge or what they can cook,
+    use the fridge inventory tool before answering.
+
+    Never invent ingredients that are supposedly in the fridge."
 
   def create
-    @chat = household.chats.find(params[:chat_id])
+    #@chat = household.chats.find(params[:chat_id])
+    @chat = current_household.chats.find(params[:chat_id])
     @message = @chat.messages.build(message_params)
     @message.role = "user"
 
     if @message.save
+      # ruby_llm_chat = RubyLLM.chat
+      # response = ruby_llm_chat.with_instructions(instructions).ask(@message.content)
       ruby_llm_chat = RubyLLM.chat
-      response = ruby_llm_chat.with_instructions(instructions).ask(@message.content)
+        ruby_llm_chat.with_tool(
+          FridgeInventoryTool.new(household: current_household)
+        )
+
+        response = ruby_llm_chat
+          .with_instructions(instructions)
+          .ask(@message.content)
       Message.create(role: "assistant", content: response.content, chat: @chat)
       @chat.generate_title_from_first_message
       redirect_to chat_path(@chat)
@@ -25,7 +42,7 @@ class MessagesController < ApplicationController
 
     build_conversation_history
 
-    @ruby_llm_chat.with_tool()
+    # @ruby_llm_chat.with_tool()
     @ruby_llm_chat.with_instructions(instructions)
 
     @ruby_llm_chat.ask(@message.content) do |chunk|
@@ -52,9 +69,13 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content)
   end
 
-  def household_context
-    "Here are the members of the household: #{@household.members}.\n\n Here are the available items in the fridge #{@fridge_items.all}."
-  end
+  # def household_context
+  #   "Here are the members of the household: #{@household.members}.\n\n Here are the available items in the fridge #{@fridge_items.all}."
+    def household_context
+      members = current_household.members.pluck(:first_name)
+
+      "The household members are: #{members.join(', ')}."
+    end
 
   def instructions
     [SYSTEM_PROMPT, household_context].compact.join("\n\n")
