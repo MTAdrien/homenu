@@ -33,4 +33,14 @@
 
   </section>
 
+  <%= link_to "+  Add item",
+              new_household_fridge_item_path(@household),
+              class: "fridge-add-btn" %>
+
+  <button class="fridge-ai-btn">
+    ✦ Ask AI what I can cook
+  </button>
+  <section class="footer-section">
+    <%= render "shared/navbar" %>
+  </section>
 </div>
