@@ -1,0 +1,60 @@
+<div class="fridge-page">
+
+  <header class="fridge-header">
+    <div class="fridge-brand">
+      <%= image_tag "https://res.cloudinary.com/gewxhipj/image/upload/v1787142267/homenu_logo.png",
+                    alt: "HomeNu",
+                    class: "fridge-logo" %>
+
+      <span class="fridge-title">Fridge</span>
+    </div>
+
+    <div class="household-avatar">
+      <%= current_user.name.to_s.first.upcase %>
+    </div>
+  </header>
+
+  <section class="fridge-section">
+    <div class="fridge-items">
+      <% @household.fridge_items.each do |item| %>
+        <div class="fridge-items">
+  <% @household.fridge_items.each do |item| %>
+
+    <div class="fridge-item">
+
+      <div class="fridge-item-info">
+        <strong><%= item.name %></strong>
+      </div>
+
+      <div class="fridge-item-actions">
+
+        <button class="fridge-quantity-btn">−</button>
+
+        <span class="fridge-quantity-value">
+          <%= item.quantity %>
+        </span>
+
+        <button class="fridge-quantity-btn">+</button>
+
+        <button class="fridge-delete-btn">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+  <% end %>
+</div>
+      <% end %>
+    </div>
+  </section>
+
+  <%= link_to "+  Add item",
+              new_household_fridge_item_path(@household),
+              class: "fridge-add-btn" %>
+
+  <button class="fridge-ai-btn">
+    ✦ Ask AI what I can cook
+  </button>
+</div>
