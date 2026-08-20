@@ -3,6 +3,7 @@ class ChatsController < ApplicationController
 
   def index
     @chats = current_user.chats
+    @household = current_household
   end
 
   def show

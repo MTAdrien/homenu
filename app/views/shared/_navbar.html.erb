@@ -11,8 +11,8 @@
     <span>Fridge</span>
   <% end %>
 
-  <%= link_to "#",
-        class: "bottom-nav__item" do %>
+  <%= link_to chats_path,
+        class: "bottom-nav__item #{'is-active' if current_page?(chats_path)}" do %>
     <i class="fa-solid fa-wand-magic-sparkles"></i>
     <span>Assistant</span>
   <% end %>
