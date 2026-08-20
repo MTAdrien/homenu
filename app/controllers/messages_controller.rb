@@ -10,24 +10,19 @@ class MessagesController < ApplicationController
 
     Never invent ingredients that are supposedly in the fridge."
 
+
   def create
-    #@chat = household.chats.find(params[:chat_id])
     @chat = current_household.chats.find(params[:chat_id])
     @message = @chat.messages.build(message_params)
     @message.role = "user"
 
     if @message.save
-      # ruby_llm_chat = RubyLLM.chat
-      # response = ruby_llm_chat.with_instructions(instructions).ask(@message.content)
-      ruby_llm_chat = RubyLLM.chat
-        ruby_llm_chat.with_tool(
-          FridgeInventoryTool.new(household: current_household)
-        )
+      @assistant_message = @chat.messages.create!(role: "assistant", content: "")
 
-        response = ruby_llm_chat
-          .with_instructions(instructions)
-          .ask(@message.content)
-      Message.create(role: "assistant", content: response.content, chat: @chat)
+      response = ask_llm
+
+      @assistant_message.update!(content: response.content)
+      broadcast_replace(@assistant_message)
       @chat.generate_title_from_first_message
       redirect_to chat_path(@chat)
     else
@@ -42,7 +37,7 @@ class MessagesController < ApplicationController
 
     build_conversation_history
 
-    # @ruby_llm_chat.with_tool()
+    @ruby_llm_chat.with_tool(FridgeInventoryTool.new(household: current_household))
     @ruby_llm_chat.with_instructions(instructions)
 
     @ruby_llm_chat.ask(@message.content) do |chunk|
@@ -69,8 +64,7 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content)
   end
 
-  # def household_context
-  #   "Here are the members of the household: #{@household.members}.\n\n Here are the available items in the fridge #{@fridge_items.all}."
+
     def household_context
       members = current_household.members.pluck(:first_name)
 

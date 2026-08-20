@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :chats, only: [ :index, :show, :new, :create ] do
-    resources :messages, only: [:new, :create ]
+    resources :messages, only: [ :index, :new, :create ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

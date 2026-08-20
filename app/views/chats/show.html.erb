@@ -1,5 +1,7 @@
 <div class="chat-page">
 
+  <%= turbo_stream_from @chat %>
+
   <!-- HEADER -->
   <header class="chat-topbar">
 
@@ -31,48 +33,10 @@
 
 
   <!-- CONVERSATION -->
-  <main class="chat-conversation">
+  <main class="chat-conversation" id="messages">
 
     <% @messages.each do |message| %>
-
-      <% if message.role == "user" %>
-
-        <div class="chat-message-row-user">
-
-          <div class="chat-message-user">
-            <%= message.content %>
-          </div>
-
-          <span class="chat-time">
-            <%= message.created_at.strftime("%H:%M") %>
-          </span>
-
-        </div>
-
-      <% elsif message.role == "assistant" %>
-
-        <div class="chat-assistant-row">
-
-          <div class="chat-ai-icon">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-          </div>
-
-          <div class="chat-assistant-content">
-
-            <div class="chat-message-assistant">
-              <%= message.content %>
-            </div>
-
-            <span class="chat-time">
-              <%= message.created_at.strftime("%H:%M") %>
-            </span>
-
-          </div>
-
-        </div>
-
-      <% end %>
-
+      <%= render "messages/message", message: message %>
     <% end %>
 
   </main>
@@ -81,23 +45,22 @@
   <!-- MESSAGE FORM -->
   <section class="chat-composer">
 
-  <%= form_with model: @message,
-                url: chat_messages_path(@chat),
-                method: :post,
-                data: { turbo: false },
-                class: "input-group" do |f| %>
+    <%= form_with model: @message,
+                  url: chat_messages_path(@chat),
+                  method: :post,
+                  class: "input-group" do |f| %>
 
-    <%= f.text_field :content,
-          class: "form-control",
-          placeholder: "Ask a follow-up..." %>
+      <%= f.text_field :content,
+            class: "form-control",
+            placeholder: "Ask a follow-up..." %>
 
-    <%= f.button type: "submit",
-          class: "btn chat-send-button" do %>
-      <i class="fa-solid fa-paper-plane"></i>
+      <%= f.button type: "submit",
+            class: "btn chat-send-button" do %>
+        <i class="fa-solid fa-paper-plane"></i>
+      <% end %>
+
     <% end %>
 
-  <% end %>
-
-</section>
+  </section>
 
 </div>
