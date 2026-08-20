@@ -36,9 +36,19 @@
 
         <button class="fridge-quantity-btn">+</button>
 
-        <button class="fridge-delete-btn">
+        <%= link_to edit_household_fridge_item_path(@household, item),
+                    class: "fridge-edit-btn" do %>
+          <i class="fa-solid fa-pen"></i>
+        <% end %>
+
+        <%= link_to household_fridge_item_path(@household, item),
+                    data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Delete this item?"
+                    },
+                    class: "fridge-delete-btn" do %>
           <i class="fa-solid fa-trash"></i>
-        </button>
+        <% end %>
 
       </div>
 
