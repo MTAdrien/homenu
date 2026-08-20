@@ -10,7 +10,7 @@
           <%# <%= link_to "Home", "#", class: "nav-link #{'active' if current_page?("#")}"%>
         </li>
         <li class="nav-item row">
-          <%= link_to household_path(@household), class: "navbar-brand" do %>
+          <%= link_to household_fridge_items_path(current_user.households.first), class: "navbar-brand" do %>
             <i class="fa-solid fa-pizza-slice"></i>
           <% end %>
           <%# <%= link_to "Fridge", "#", class: "nav-link #{'active' if current_page?("#")}" %>
