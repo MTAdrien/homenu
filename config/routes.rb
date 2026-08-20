@@ -4,8 +4,8 @@ Rails.application.routes.draw do
 
   resources :households, only: [ :show, :new, :create, :update ] do
     resources :members, only: [:new, :create ]
+    resources :fridge_items, only: [:index, :show, :new, :create, :edit, :update, :destroy ]
   end
-  resources :fridge_items, only: [ :new, :create, :edit, :update, :destroy ]
 
   resources :chats, only: [ :index, :show, :new, :create ] do
     resources :messages, only: [:new, :create ]
