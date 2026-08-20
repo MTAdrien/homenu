@@ -59,7 +59,7 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-  # gem "ruby_llm", "~> 1.2.0"
+  gem "ruby_llm", "~> 1.2.0"
 end
 
 group :development do
