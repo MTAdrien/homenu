@@ -9,62 +9,28 @@
       <span class="fridge-title">Fridge</span>
     </div>
 
-    <div class="household-avatar">
+    <div class="fridge-avatar">
       <%= current_user.name.to_s.first.upcase %>
     </div>
   </header>
 
+
   <section class="fridge-section">
-    <div class="fridge-items">
+
+    <div id="fridge-items" class="fridge-items">
       <% @household.fridge_items.each do |item| %>
-        <div class="fridge-items">
-  <% @household.fridge_items.each do |item| %>
-
-    <div class="fridge-item">
-
-      <div class="fridge-item-info">
-        <strong><%= item.name %></strong>
-      </div>
-
-      <div class="fridge-item-actions">
-
-        <button class="fridge-quantity-btn">−</button>
-
-        <span class="fridge-quantity-value">
-          <%= item.quantity %>
-        </span>
-
-        <button class="fridge-quantity-btn">+</button>
-
-        <%= link_to edit_household_fridge_item_path(@household, item),
-                    class: "fridge-edit-btn" do %>
-          <i class="fa-solid fa-pen"></i>
-        <% end %>
-
-        <%= link_to household_fridge_item_path(@household, item),
-                    data: {
-                      turbo_method: :delete,
-                      turbo_confirm: "Delete this item?"
-                    },
-                    class: "fridge-delete-btn" do %>
-          <i class="fa-solid fa-trash"></i>
-        <% end %>
-
-      </div>
-
-    </div>
-
-  <% end %>
-</div>
+        <%= render "fridge_item", fridge_item: item %>
       <% end %>
     </div>
+
+    <%= link_to "+ Add item",
+                new_household_fridge_item_path(@household),
+                class: "fridge-add-btn" %>
+
+    <button class="fridge-ai-btn">
+      ✦ Ask AI what I can cook
+    </button>
+
   </section>
 
-  <%= link_to "+  Add item",
-              new_household_fridge_item_path(@household),
-              class: "fridge-add-btn" %>
-
-  <button class="fridge-ai-btn">
-    ✦ Ask AI what I can cook
-  </button>
 </div>

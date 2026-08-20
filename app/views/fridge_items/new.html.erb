@@ -1,2 +1,52 @@
-<h1>FridgeItems#new</h1>
-<p>Find me in app/views/fridge_items/new.html.erb</p>
+<div class="fridge-page">
+
+  <header class="fridge-header">
+    <div class="fridge-brand">
+      <%= image_tag "https://res.cloudinary.com/gewxhipj/image/upload/v1787142267/homenu_logo.png",
+                    alt: "HomeNu",
+                    class: "fridge-logo" %>
+
+      <span class="fridge-title">Fridge</span>
+    </div>
+
+    <div class="fridge-avatar">
+      <%= current_user.name.to_s.first.upcase %>
+    </div>
+  </header>
+
+
+  <section class="fridge-new-intro">
+    <h1>Add an item</h1>
+  </section>
+
+
+  <div class="fridge-form-card">
+
+    <%= simple_form_for [@household, @fridge_item] do |f| %>
+
+      <%= f.input :name,
+                  label: "Item name",
+                  placeholder: "e.g. Tomatoes" %>
+
+      <%= f.input :quantity,
+                  label: "Quantity",
+                  input_html: { min: 1 } %>
+
+      <%= f.input :expiry_date,
+                  label: "Expiry date",
+                  as: :date,
+                  html5: true %>
+
+      <%= f.button :submit,
+                   "Add item",
+                   class: "fridge-submit-btn" %>
+
+    <% end %>
+
+    <%= link_to "Cancel",
+                household_fridge_items_path(@household),
+                class: "fridge-cancel-btn" %>
+
+  </div>
+
+</div>
