@@ -1,16 +1,94 @@
+.chats-index {
+  width: 100%;
+  max-width: 420px;
+  min-height: 100vh;
+  background-color: #fbf9f8;
+  margin: 0 auto;
+  padding: 40px 28px;
+}
+
+.chats-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 38px;
+}
+
+.chats-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chats-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.chats-title {
+  color: #3e6658;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.chats-avatar {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background-color: #3e6658;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.chats-index h1 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1b1c1c;
+}
+
 .chats-index .btn-primary {
   background-color: #3e6658;
   border-color: #3e6658;
-  border-radius: 10px;
-  padding: 10px 20px;
+  color: white;
+  border-radius: 16px;
+  padding: 12px 24px;
+  font-weight: 600;
 }
 
 .chats-index .btn-primary:active {
-  background-color: #29483d;
-  border-color: #29483d;
+  background-color: #224a3d;
+  border-color: #224a3d;
+  color: white;
 }
 
 .chats-index .list-group-item {
-  border-radius: 10px;
-  margin-bottom: 8px;
+  background-color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 12px;
+}
+
+.chats-index .list-group-item a {
+  color: #1b1c1c;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.chats-index .list-group-item a:hover {
+  color: #3e6658;
+}
+
+.chats-index .text-muted {
+  color: #717975;
 }
