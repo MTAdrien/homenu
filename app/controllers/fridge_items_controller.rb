@@ -27,11 +27,15 @@ class FridgeItemsController < ApplicationController
   end
 
   def update
-    if @fridge_item.update(fridge_item_params)
-      redirect_to household_fridge_items_path(@household), notice: "Updated article"
-    else
-      render :edit, status: :unprocessable_entity
-    end
+      if @fridge_item.update(fridge_item_params)
+        respond_to do |format|
+          format.turbo_stream
+          format.html { redirect_to household_fridge_items_path(@household), notice: "Updated article" }
+        end
+
+      else
+        render :edit, status: :unprocessable_entity
+      end
   end
 
   def destroy
