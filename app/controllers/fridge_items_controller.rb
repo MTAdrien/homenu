@@ -3,6 +3,10 @@ class FridgeItemsController < ApplicationController
   before_action :set_household
   before_action :set_fridge_item, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @fridge_item = @household.fridge_items
+  end
+
   def show
   end
 
