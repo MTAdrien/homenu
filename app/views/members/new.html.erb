@@ -2,23 +2,23 @@
   <div class="form-card">
     <div class="form-header">
       <div class="form-logo">
-        <%= image_tag "https://res.cloudinary.com/gewxhipj/image/upload/v1787142267/homenu_logo.png", alt: "HomeNu Logo" %>
+        <%= image_tag "homenu_logo.png", alt: "HomeNu Logo" %>
       </div>
       <h1>Add your household members</h1>
     </div>
 
-    <ul id="members-list" class="members-list">
-      <% @household.members.each do |member| %>
+    <div id="members-list" class="members-list">
+      <% @household.members.select(&:persisted?).each do |member| %>
         <%= render member %>
       <% end %>
-    </ul>
+    </div>
 
     <%= turbo_frame_tag "member-form" do %>
       <%= render "form", household: @household, member: @member %>
     <% end %>
 
     <div class="form-actions">
-      <%= link_to "Terminer", household_path(@household), class: "btn btn-primary w-100" %>
+      <%= link_to "Finish", household_path(@household), class: "btn btn-primary w-100" %>
     </div>
   </div>
 </div>

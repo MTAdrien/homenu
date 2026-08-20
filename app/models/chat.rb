@@ -5,7 +5,7 @@ class Chat < ApplicationRecord
   PROMPT
 
   belongs_to :household
-  belongs_to :user
+  belongs_to :user, optional: true
 
   has_many :messages, dependent: :destroy
 
