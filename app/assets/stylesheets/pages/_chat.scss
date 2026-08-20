@@ -174,50 +174,6 @@
 }
 
 
-
-// QUICK SUGGESTIONS
-
-
-.chat-suggestions {
-  width: 100%;
-
-  display: flex;
-  gap: 7px;
-
-  margin-bottom: 10px;
-
-  overflow-x: auto;
-
-  scrollbar-width: none;
-}
-
-.chat-suggestions::-webkit-scrollbar {
-  display: none;
-}
-
-.chat-suggestions button {
-  flex-shrink: 0;
-
-  padding: 7px 11px;
-
-  background-color: #edf3f0;
-  color: #3e6658;
-
-  border: 0;
-  border-radius: 14px;
-
-  font-size: 10px;
-  font-weight: 500;
-
-  cursor: pointer;
-}
-
-.chat-suggestions button:hover {
-  background-color: #dfeae6;
-}
-
-
-
 // MESSAGE INPUT
 
 
@@ -295,16 +251,6 @@
 @media (max-width: 420px) {
   .chat-page {
     max-width: none;
-
-    padding-left: 18px;
-    padding-right: 18px;
-  }
-
-  .chat-bottom-nav {
-    width: calc(100% + 36px);
-
-    margin-left: -18px;
-    margin-right: -18px;
 
     padding-left: 18px;
     padding-right: 18px;
