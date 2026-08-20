@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :members, dependent: :destroy
   has_many :households, through: :members
-  has_many :created_households, class_name: "Household", foreign_key: "user_id", dependent: :destroy
-  has_many :chats, dependent: :nullify
+  has_many :owned_households, class_name: "Household", foreign_key: "user_id", dependent: :destroy
+  has_many :chats, dependent: :destroy
+  has_many :messages, through: :chats
 end
