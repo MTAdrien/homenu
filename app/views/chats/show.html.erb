@@ -1,2 +1,98 @@
-<h1>Chats#show</h1>
-<p>Find me in app/views/chats/show.html.erb</p>
+<div class="chat-page">
+
+  <!-- HEADER -->
+  <header class="chat-topbar">
+
+    <div class="chat-brand">
+      <%= image_tag "https://res.cloudinary.com/gewxhipj/image/upload/v1787142267/homenu_logo.png",
+                    alt: "HomeNu",
+                    class: "household-logo" %>
+
+      <span>AI Assistant</span>
+    </div>
+
+    <div class="household-avatar">
+      <%= current_user.name.to_s.first.upcase %>
+    </div>
+
+  </header>
+
+
+  <!-- INTRO -->
+  <section class="chat-intro">
+
+    <h1>HomeNu AI</h1>
+
+    <p>
+      Cooking with what you already have.
+    </p>
+
+  </section>
+
+
+  <!-- CONVERSATION -->
+  <main class="chat-conversation">
+
+    <!-- USER MESSAGE PLACEHOLDER -->
+    <div class="chat-message-row-user">
+
+      <div class="chat-message-user">
+        What can we cook tonight?
+      </div>
+
+      <span class="chat-time">
+        18:42
+      </span>
+
+    </div>
+
+
+    <!-- ASSISTANT MESSAGE PLACEHOLDER -->
+    <div class="chat-assistant-row">
+
+      <div class="chat-ai-icon">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+      </div>
+
+      <div class="chat-assistant-content">
+
+        <div class="chat-message-assistant">
+          I found a few ingredients in your fridge.
+          I can suggest a meal based on what you already have.
+        </div>
+
+        <span class="chat-time">
+          18:43
+        </span>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- MESSAGE INPUT PLACEHOLDER -->
+  <section class="chat-composer">
+
+    <div class="input-group">
+
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Ask a follow-up..."
+      >
+
+      <button
+        class="btn chat-send-button"
+        type="button"
+      >
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+
+    </div>
+
+  </section>
+
+
+</div>
