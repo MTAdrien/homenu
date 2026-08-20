@@ -1,0 +1,45 @@
+<div id="<%= dom_id(fridge_item) %>" class="fridge-item">
+
+  <div class="fridge-item-info">
+    <strong><%= fridge_item.name %></strong>
+  </div>
+
+  <div class="fridge-item-actions">
+
+    <%= button_to household_fridge_item_path(@household, fridge_item),
+                  method: :patch,
+                  params: {
+                    fridge_item: {
+                      quantity: fridge_item.quantity - 1
+                    }
+                  },
+                  disabled: fridge_item.quantity <= 1,
+                  class: "fridge-quantity-btn" do %>
+      −
+    <% end %>
+
+    <span class="fridge-quantity-value">
+      <%= fridge_item.quantity %>
+    </span>
+
+    <%= button_to household_fridge_item_path(@household, fridge_item),
+                  method: :patch,
+                  params: {
+                    fridge_item: {
+                      quantity: fridge_item.quantity + 1
+                    }
+                  },
+                  class: "fridge-quantity-btn" do %>
+      +
+    <% end %>
+
+    <%= button_to household_fridge_item_path(@household, fridge_item),
+                  method: :delete,
+                  data: { turbo_confirm: "Delete this item?" },
+                  class: "fridge-delete-btn" do %>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
+
+  </div>
+
+</div>
