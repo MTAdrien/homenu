@@ -1,2 +1,19 @@
-<h1>Here are all your recipes</h1>
-<p>list of all chats title</p>
+<div class="container mt-5 chats-index">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Household recipes</h1>
+  </div>
+
+  <% if @chats.any? %>
+    <%= button_to "New chat", chats_path, class: "btn btn-primary" %>
+    <ul class="list-group">
+      <% @chats.each do |chat| %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= link_to chat.name, chat_path(chat) %>
+          <span class="text-muted"><%= chat.user.first_name %></span>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <%= button_to "You don't have any recipes. Start creating recipes", chats_path, class: "btn btn-primary" %>
+  <% end %>
+</div>

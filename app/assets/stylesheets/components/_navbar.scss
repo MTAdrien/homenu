@@ -1,0 +1,39 @@
+.navbar {
+  background-color: #fbf9f8;
+  border-bottom: 1px solid #e0dedb;
+  padding: 12px 0;
+
+  .navbar-brand {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #3e6658;
+}
+
+.navbar-brand:hover {
+  color: #2f4f44;
+}
+
+.nav-link {
+  color: #6c757d;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  color: #3e6658;
+  background-color: #fbf9f8;
+}
+
+.nav-link.active {
+  color: #3e6658;
+  font-weight: 600;
+  background-color: #fbf9f8;
+}
+
+.fa-solid {
+  color: #3e6658;
+  font-size: 16px;
+}
+
+}
