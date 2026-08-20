@@ -1,6 +1,15 @@
 class ChatsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @chats = Chat.all
+  end
+
+  def show
+    @chat    = current_user.chats.find(params[:id])
+    @message = Message.new
+  end
+
   def create
     @household = Household.find(params[:household_id])
     @chat = Chat.new(title: "Untitled")
@@ -13,9 +22,5 @@ class ChatsController < ApplicationController
       @chats = @household.chats.where(user: current_user)
       render "household/show"
     end
-  end
-  def show
-    @chat    = current_user.chats.find(params[:id])
-    @message = Message.new
   end
 end
