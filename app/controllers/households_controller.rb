@@ -1,9 +1,12 @@
 class HouseholdsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_household, only: [:show, :update]
+  before_action :set_household, only: [:show, :edit, :update]
 
   def new
     @household = Household.new
+  end
+
+  def edit
   end
 
   def create
@@ -31,7 +34,7 @@ class HouseholdsController < ApplicationController
   private
 
   def set_household
-    @household = Household.find(params[:id])
+    @household = current_user.households.find(params[:id])
   end
 
   def household_params
