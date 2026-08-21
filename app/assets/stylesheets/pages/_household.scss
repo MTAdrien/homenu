@@ -109,32 +109,6 @@
   text-align: center;
 }
 
-.member-avatar {
-  width: 52px;
-  height: 52px;
-  margin: 0 auto 6px;
-
-  border: 3px solid white;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: #3e6658;
-  color: white;
-
-  font-size: 17px;
-  font-weight: 700;
-}
-
-.member-name {
-  display: block;
-
-  color: #222;
-  font-size: 12px;
-}
-
 // QUICK ACTION
 // Conteneur : colonne (haut + photo)
 .household-ai-btn {
@@ -231,11 +205,6 @@
 
   .members-list {
     gap: 14px;
-  }
-
-  .member-avatar {
-    width: 48px;
-    height: 48px;
   }
 
   .quick-action-suggest h2,
