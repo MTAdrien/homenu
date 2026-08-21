@@ -92,3 +92,13 @@
 .chats-index .text-muted {
   color: #717975;
 }
+
+.chats-index .btn-outline-danger {
+  border-radius: 16px;
+  font-weight: 600;
+}
+
+.chats-delete-btn {
+  position: relative;
+  z-index: 2;
+}
