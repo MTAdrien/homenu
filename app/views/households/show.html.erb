@@ -74,8 +74,11 @@
       </div>
 
       <div class="quick-action-suggest">
-        <h2>Next Meal</h2>
-        <p>Instant ideas based on your fridge</p>
+      <%= button_to "✦ Quick suggest",
+              chats_path,
+              method: :post,
+              params: { auto_recipe: true },
+              class: "fridge-ai-btn" %>
       </div>
 
       <div class="quick-action-arrow">
