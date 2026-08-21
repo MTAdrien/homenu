@@ -23,7 +23,8 @@
       <% end %>
     </ul>
   <% else %>
-    <%= button_to "You don't have any recipes. Start creating recipes", chats_path, class: "btn btn-primary" %>
+  <p>You don't have any recipes. </p>
+    <%= button_to "Start creating recipes", chats_path, class: "btn btn-primary" %>
   <% end %>
   <div class="nav">
     <%= render "shared/navbar" %>
