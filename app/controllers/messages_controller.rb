@@ -51,7 +51,7 @@ Do not wrap the response in a Markdown code block."
 
       @assistant_message.update!(content: response.content)
       broadcast_replace(@assistant_message)
-      @chat.generate_title_from_first_message
+      @chat.generate_title_from_recipe(@assistant_message.content)
       redirect_to chat_path(@chat)
     else
       render "chats/show", status: :unprocessable_entity
