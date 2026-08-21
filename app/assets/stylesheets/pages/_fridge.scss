@@ -243,6 +243,77 @@
   background-color: #345649;
 }
 
+// FORM ACTIONS
+
+.fridge-submit-btn {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 14px;
+
+  background-color: #3e6658;
+  color: white;
+
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.fridge-submit-btn:hover {
+  background-color: #345649;
+  color: white;
+}
+
+.fridge-cancel-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+
+  display: block;
+
+  border-radius: 14px;
+
+  color: #777;
+
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.fridge-cancel-btn:hover {
+  background-color: #f0edeb;
+  color: #555;
+}
+
+// NEW ITEM FORM
+
+.fridge-new-intro {
+  margin-bottom: 24px;
+}
+
+.fridge-new-intro h1 {
+  margin: 0;
+
+  color: #202020;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.fridge-form-card {
+  padding: 22px;
+
+  background-color: white;
+  border-radius: 18px;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+
 // MOBILE
 
 @media (max-width: 420px) {

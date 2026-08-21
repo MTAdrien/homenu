@@ -63,32 +63,36 @@
 
 
   <!-- QUICK ACTIONS -->
-  <section class="household-section">
+<section class="household-section">
 
-    <p class="section-title">QUICK ACTIONS</p>
+  <p class="section-title">QUICK ACTIONS</p>
 
+  <!-- Suggest -->
+  <%= button_to chats_path,
+      method: :post,
+      params: { auto_recipe: true },
+      class: "household-ai-btn" do %>
 
-    <!-- Suggest -->
-    <div class="quick-action-card">
-
-      <div class="quick-action-icon suggest">
-        <i class="fa-solid fa-utensils"></i>
-      </div>
-
-      <div class="quick-action-suggest">
-        <h2>Next Meal</h2>
-        <p>Instant ideas based on your fridge</p>
-      </div>
-
-      <div class="quick-action-arrow">
-        ›
-      </div>
-
-        <%= image_tag "https://res.cloudinary.com/gewxhipj/image/upload/v1787142268/suggest-meal.png",
-              alt: "Meal suggestion",
-              class: "quick-action-image" %>
-
+  <div class="quick-action-top">
+    <div class="quick-action-icon suggest">
+      <i class="fa-solid fa-utensils"></i>
     </div>
+
+    <div class="quick-action-suggest">
+      <h2>Next Meal</h2>
+      <p>Instant ideas based on your fridge</p>
+    </div>
+
+    <div class="quick-action-arrow">›</div>
+  </div>
+
+  <%= image_tag "https://res.cloudinary.com/gewxhipj/image/upload/v1787142268/suggest-meal.png",
+        alt: "Meal suggestion",
+        class: "quick-action-image" %>
+
+<% end %>
+
+</section>
 
 
   </section>

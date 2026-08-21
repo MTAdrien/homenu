@@ -20,12 +20,13 @@
       <% @chats.each do |chat| %>
         <li class="list-group-item d-flex justify-content-between align-items-center position-relative">
           <%= link_to chat.name, chat_path(chat), class: "stretched-link" %>
-          <%= button_to "Supprimer", chat_path(chat), method: :delete, class: "btn btn-sm btn-outline-danger chats-delete-btn", data: { turbo_confirm: "Supprimer cette recette ?" } %>
+          <%= button_to "Delete", chat_path(chat), method: :delete, class: "btn btn-sm btn-outline-danger chats-delete-btn", data: { turbo_confirm: "Delete this recipe ?" } %>
         </li>
       <% end %>
     </ul>
   <% else %>
-    <%= button_to "You don't have any recipes. Start creating recipes", chats_path, class: "btn btn-primary" %>
+  <p>You don't have any recipes. </p>
+    <%= button_to "Start creating recipes", chats_path, class: "btn btn-primary" %>
   <% end %>
   <div class="nav">
     <%= render "shared/navbar" %>

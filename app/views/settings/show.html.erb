@@ -72,15 +72,15 @@
     <h3 class="settings-label">INFOS</h3>
     <div class="settings-card">
       <div class="settings-item">
-        <span>Nom du foyer</span>
+        <span>Name</span>
         <span class="settings-value"><%= @household.name %></span>
       </div>
       <div class="settings-item">
-        <span>Créé le</span>
+        <span>Created on</span>
         <span class="settings-value"><%= @household.created_at.strftime("%-d %b %Y") %></span>
       </div>
       <%= link_to edit_household_path(@household), class: "settings-item settings-item--link" do %>
-        <span>Modifier le foyer</span>
+        <span>Edit household</span>
         <i class="fa-solid fa-chevron-right"></i>
       <% end %>
     </div>
