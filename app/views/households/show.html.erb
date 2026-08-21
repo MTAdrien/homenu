@@ -41,9 +41,9 @@
 
           <div class="household-member">
 
-            <div class="member-avatar">
-              <%= member.user.name.to_s.first.upcase %>
-            </div>
+            <span class="member-avatar" style="background: <%= avatar_color(member.first_name) %>">
+              <%= member.first_name.to_s.first.to_s.upcase %>
+            </span>
 
             <span class="member-name">
               <%= member.user.name %>
