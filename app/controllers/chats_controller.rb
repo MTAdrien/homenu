@@ -10,6 +10,7 @@ class ChatsController < ApplicationController
     @chat    = current_user.chats.find(params[:id])
     @messages = @chat.messages
     @message = Message.new
+    @household = @chat.household
   end
 
   def create

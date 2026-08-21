@@ -10,7 +10,33 @@ class MessagesController < ApplicationController
     You also have access to a tool that returns the number of members in the household.
     Use it when the number of people is relevant, especially when suggesting recipe quantities or meal portions.
 
-    Never invent ingredients that are supposedly in the fridge."
+    Never invent ingredients that are supposedly in the fridge.
+
+    When suggesting a recipe, always respond in Markdown.
+
+Use exactly this structure:
+
+## Recipe title
+
+**Preparation time:** X minutes
+**Cooking time:** X minutes
+**Servings:** X people
+
+### Ingredients
+
+- ingredient with quantity
+- ingredient with quantity
+- ingredient with quantity
+
+### Preparation
+
+1. First step
+2. Second step
+3. Third step
+
+Adapt ingredient quantities to the number of household members.
+Keep the recipe clear and concise.
+Do not wrap the response in a Markdown code block."
 
 
   def create

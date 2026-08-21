@@ -2,7 +2,8 @@ class Chat < ApplicationRecord
   DEFAULT_TITLE = "Untitled"
 
   TITLE_PROMPT = <<~PROMPT
-    Generate a short, descriptive, 3-to-6-word title that summarizes the user question for a chat conversation.
+    Use the title of the recipe suggested in the assistant response as the chat title.
+    Return only the recipe title.
   PROMPT
 
   belongs_to :household
