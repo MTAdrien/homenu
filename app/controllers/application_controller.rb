@@ -4,4 +4,9 @@ class ApplicationController < ActionController::Base
 
   # Changes to the importmap will invalidate the etag for HTML responses
   stale_when_importmap_changes
+
+  def current_household
+    @current_household ||= current_user&.households&.first
+  end
+  helper_method :current_household
 end
