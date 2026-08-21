@@ -9,9 +9,9 @@
       <span class="fridge-title">Fridge</span>
     </div>
 
-    <div class="fridge-avatar">
-      <%= current_user.name.to_s.first.upcase %>
-    </div>
+    <a href="/settings" class="settings-profile-link" aria-label="Paramètres">
+      <div class="fa-solid fa-circle-user settings-profile"></div>
+    </a>
   </header>
 
 
@@ -48,5 +48,8 @@
                 class: "fridge-cancel-btn" %>
 
   </div>
+  <section class="footer-section">
+    <%= render "shared/navbar" %>
+  </section>
 
 </div>
