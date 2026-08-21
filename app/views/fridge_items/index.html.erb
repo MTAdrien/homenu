@@ -27,9 +27,11 @@
                 new_household_fridge_item_path(@household),
                 class: "fridge-add-btn" %>
 
-    <button class="fridge-ai-btn">
-      ✦ Ask AI what I can cook
-    </button>
+    <%= button_to "✦ Ask AI what I can cook",
+              chats_path,
+              method: :post,
+              params: { auto_recipe: true },
+              class: "fridge-ai-btn" %>
 
   </section>
   <section class="footer-section">
