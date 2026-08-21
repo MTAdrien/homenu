@@ -4,12 +4,12 @@
         <%= image_tag "https://res.cloudinary.com/gewxhipj/image/upload/v1787142267/homenu_logo.png",
                       alt: "HomeNu",
                       class: "chats-logo" %>
-      <h1>Household recipes</h1>
+      <span class="fridge-title">Recipes</span>
     </div>
 
-        <div class="chats-avatar">
-        <%= current_user.name.to_s.first.upcase %>
-      </div>
+    <a href="/settings" class="settings-profile-link" aria-label="Paramètres">
+      <div class="fa-solid fa-circle-user settings-profile"></div>
+    </a>
   </div>
 
   <% if @chats.any? %>

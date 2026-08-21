@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "households#new"
+  root to: "households#show"
 
   resources :households do
     resources :members, only: [ :new, :create, :edit, :create, :destroy ]
     resources :fridge_items, only: [:index, :show, :new, :create, :edit, :update, :destroy ]
   end
+
 
   resources :chats, only: [ :index, :show, :new, :create, :destroy ] do
     resources :messages, only: [ :index, :new, :create ]

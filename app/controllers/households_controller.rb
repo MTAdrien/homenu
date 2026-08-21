@@ -35,7 +35,7 @@ class HouseholdsController < ApplicationController
   private
 
   def set_household
-    @household = current_user.households.find(params[:id])
+    @household = current_household
   end
 
   def household_params
