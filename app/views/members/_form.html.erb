@@ -7,6 +7,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.submit "Add member", class: "btn btn-primary w-100" %>
+    <%= f.submit (member.persisted? ? "Save changes" : "Add member"), class: "btn btn-primary w-100" %>
   </div>
 <% end %>

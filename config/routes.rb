@@ -2,14 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "households#new"
 
-  resources :households, only: [ :show, :new, :create, :update ] do
-    resources :members, only: [:new, :create ]
+  resources :households do
+    resources :members, only: [ :new, :create, :edit, :create, :destroy ]
     resources :fridge_items, only: [:index, :show, :new, :create, :edit, :update, :destroy ]
   end
 
   resources :chats, only: [ :index, :show, :new, :create ] do
     resources :messages, only: [ :index, :new, :create ]
+  resources :chats, only: [ :index, :show, :new, :create, :destroy ] do
+    resources :messages, only: [:new, :create ]
   end
+
+  get "settings", to: "settings#show"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
