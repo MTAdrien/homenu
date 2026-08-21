@@ -10,7 +10,9 @@
     </div>
 
     <a href="/settings" class="settings-profile-link" aria-label="Paramètres">
-      <div class="fa-solid fa-circle-user settings-profile"></div>
+      <%= image_tag current_user.avatar_url,
+              alt: current_user.email,
+              class: "settings-profile-avatar" %>
     </a>
   </header>
 

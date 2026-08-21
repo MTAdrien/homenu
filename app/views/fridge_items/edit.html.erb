@@ -10,7 +10,9 @@
     </div>
 
     <div class="fridge-avatar">
-      <%= current_user.name.to_s.first.upcase %>
+      <%= image_tag current_user.avatar_url,
+              alt: current_user.email,
+              class: "settings-profile-avatar" %>
     </div>
   </header>
 
