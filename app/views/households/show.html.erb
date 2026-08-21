@@ -11,7 +11,9 @@
     </div>
 
     <a href="/settings" class="settings-profile-link" aria-label="Paramètres">
-      <div class="fa-solid fa-circle-user settings-profile"></div>
+        <%= image_tag current_user.avatar_url,
+                alt: current_user.name,
+                class: "settings-profile-avatar" %>
     </a>
   </header>
 
@@ -41,12 +43,12 @@
 
           <div class="household-member">
 
-            <span class="member-avatar" style="background: <%= avatar_color(member.first_name) %>">
-              <%= member.first_name.to_s.first.to_s.upcase %>
-            </span>
+           <%= image_tag member.avatar_url,
+              alt: member.first_name,
+              class: "member-avatar" %>
 
             <span class="member-name">
-              <%= member.user.name %>
+              <%= member.first_name %>
             </span>
 
           </div>

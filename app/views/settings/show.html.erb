@@ -7,7 +7,9 @@
     <% end %>
     <h1>Household</h1>
     <a href="/settings" class="settings-profile-link" aria-label="Paramètres">
-      <div class="fa-solid fa-circle-user settings-profile"></div>
+      <%= image_tag current_user.avatar_url,
+              alt: current_user.email,
+              class: "settings-profile-avatar" %>
     </a>
   </header>
 
@@ -24,9 +26,9 @@
       <% @household.members.each do |member| %>
         <div class="member-row">
           <div class="member-identity">
-            <span class="member-avatar" style="background: <%= avatar_color(member.first_name) %>">
-              <%= member.first_name.to_s.first.to_s.upcase %>
-            </span>
+            <%= image_tag current_user.avatar_url,
+              alt: current_user.email,
+              class: "settings-profile-avatar" %>
 
             <div class="member-text">
               <span class="member-name"><%= member.first_name %></span>

@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :owned_households, class_name: "Household", foreign_key: "user_id", dependent: :destroy
   has_many :chats, dependent: :destroy
   has_many :messages, through: :chats
+
+  def avatar_url
+  "https://i.pravatar.cc/150?img=#{((id - 1) % 70) + 1}&u=user-#{id}"
+  end
 end
