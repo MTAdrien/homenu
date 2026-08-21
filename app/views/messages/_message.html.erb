@@ -1,0 +1,37 @@
+<% if message.role == "user" %>
+
+  <div class="chat-message-row-user" id="<%= dom_id(message) %>">
+
+    <div class="chat-message-user">
+      <%= message.content %>
+    </div>
+
+    <span class="chat-time">
+      <%= message.created_at.strftime("%H:%M") %>
+    </span>
+
+  </div>
+
+<% elsif message.role == "assistant" %>
+
+  <div class="chat-assistant-row" id="<%= dom_id(message) %>">
+
+    <div class="chat-ai-icon">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </div>
+
+    <div class="chat-assistant-content">
+
+      <div class="chat-message-assistant">
+        <%= message.content.present? ? message.content : "..." %>
+      </div>
+
+      <span class="chat-time">
+        <%= message.created_at.strftime("%H:%M") %>
+      </span>
+
+    </div>
+
+  </div>
+
+<% end %>
