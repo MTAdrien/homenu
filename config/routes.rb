@@ -7,10 +7,9 @@ Rails.application.routes.draw do
     resources :fridge_items, only: [:index, :show, :new, :create, :edit, :update, :destroy ]
   end
 
-  resources :chats, only: [ :index, :show, :new, :create ] do
-    resources :messages, only: [ :index, :new, :create ]
+
   resources :chats, only: [ :index, :show, :new, :create, :destroy ] do
-    resources :messages, only: [:new, :create ]
+    resources :messages, only: [ :index, :new, :create ]
   end
 
   get "settings", to: "settings#show"
