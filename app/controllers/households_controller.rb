@@ -1,6 +1,6 @@
 class HouseholdsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_household, only: [:show, :edit, :update]
+  before_action :set_household, only: [ :edit, :update ]
 
   def new
     @household = Household.new
@@ -14,14 +14,17 @@ class HouseholdsController < ApplicationController
     @household.owner = current_user
 
     if @household.save
-      Member.create!(user: current_user, household: @household)
+      # Member.create!(user: current_user, household: @household)
       redirect_to new_household_member_path(@household), notice: "Household created."
     else
+      Rails.logger.debug @household.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
 
   def show
+    @household = current_household
+    redirect_to new_household_path and return unless @household
   end
 
   def update
