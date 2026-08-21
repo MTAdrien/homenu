@@ -13,9 +13,9 @@
       <span>AI Assistant</span>
     </div>
 
-    <div class="household-avatar">
-      <%= current_user.name.to_s.first.upcase %>
-    </div>
+    <a href="/settings" class="settings-profile-link" aria-label="Paramètres">
+      <div class="fa-solid fa-circle-user settings-profile"></div>
+    </a>
 
   </header>
 
@@ -62,5 +62,7 @@
     <% end %>
 
   </section>
-
+  <section class="footer-section">
+    <%= render "shared/navbar" %>
+  </section>
 </div>
