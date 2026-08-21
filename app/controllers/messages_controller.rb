@@ -7,6 +7,8 @@ class MessagesController < ApplicationController
     You have access to a tool that reads the current household fridge.
     When the user asks what is in the fridge or what they can cook,
     use the fridge inventory tool before answering.
+    You also have access to a tool that returns the number of members in the household.
+    Use it when the number of people is relevant, especially when suggesting recipe quantities or meal portions.
 
     Never invent ingredients that are supposedly in the fridge."
 
@@ -38,6 +40,7 @@ class MessagesController < ApplicationController
     build_conversation_history
 
     @ruby_llm_chat.with_tool(FridgeInventoryTool.new(household: current_household))
+    @ruby_llm_chat.with_tool(HouseholdMembersTool.new(household: current_household))
     @ruby_llm_chat.with_instructions(instructions)
 
     @ruby_llm_chat.ask(@message.content) do |chunk|
@@ -72,6 +75,7 @@ class MessagesController < ApplicationController
     end
 
   def instructions
-    [SYSTEM_PROMPT, household_context].compact.join("\n\n")
+    # [SYSTEM_PROMPT, household_context].compact.join("\n\n")
+    SYSTEM_PROMPT
   end
 end
