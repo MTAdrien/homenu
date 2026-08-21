@@ -25,7 +25,7 @@ gem "font-awesome-sass"
 gem "cloudinary"
 gem "redcarpet"
 gem "ruby_llm", "~> 1.2.0"
-
+gem "redis"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
