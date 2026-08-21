@@ -66,11 +66,14 @@
 
 .chat-conversation {
   flex: 1;
+  min-height: 0;          /* ⭐ CRUCIAL en flex, sinon overflow ne marche pas */
+  overflow-y: auto;       /* ⭐ c'est CETTE zone qui scrolle */
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   gap: 18px;
+
+  /* retire justify-content: flex-end si tu l'avais ajouté */
 }
 
 // USER MESSAGE
