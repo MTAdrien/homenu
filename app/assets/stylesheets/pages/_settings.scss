@@ -1,0 +1,160 @@
+// app/assets/stylesheets/pages/_settings.scss
+
+.settings-page {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 16px 100px;   /* place pour la bottom-nav */
+  background: #f7f7f5;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #323533;
+}
+
+/* ---------- Header ---------- */
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0 16px;
+}
+.settings-header h1 { font-size: 18px; font-weight: 600; margin: 0; }
+.settings-back,
+.settings-profile { color: #323533; font-size: 20px; text-decoration: none; }
+
+/* ---------- Household name ---------- */
+.settings-household { margin-bottom: 20px; }
+.settings-household h2 { font-size: 24px; font-weight: 700; margin: 0 0 4px; }
+.settings-household p { color: #8a8f88; margin: 0; font-size: 14px; }
+
+/* ---------- Member list ---------- */
+.settings-members {
+  background: #fff;
+  border-radius: 16px;
+  padding: 8px;
+  margin-bottom: 24px;
+}
+
+.member-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* pousse les actions à droite */
+  gap: 12px;
+  padding: 12px 8px;
+  border-bottom: 1px solid #f0f0ee;
+}
+.member-row:last-child { border-bottom: none; }
+
+.member-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #c1d0c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;                          /* occupe l'espace central */
+  min-width: 0;
+}
+.member-name {
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.member-role { font-size: 13px; color: #8a8f88; }
+
+/* Badge admin */
+.member-badge {
+  background: #4a7c59;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+/* Actions Modifier / Retirer */
+.member-actions {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.member-actions a {
+  color: #4a7c59;
+  text-decoration: none;
+  font-weight: 500;
+}
+.member-actions a:hover { text-decoration: underline; }
+.member-actions a.member-remove { color: #e5484d; }
+
+/* ---------- Sections ---------- */
+.settings-section { margin-bottom: 24px; }
+.settings-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #8a8f88;
+  margin: 0 0 8px 4px;
+}
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  color: #323533;
+  font-size: 15px;
+}
+.settings-item i { color: #b0b3ac; font-size: 14px; }
+.settings-value { color: #8a8f88; }
+.settings-item--link { color: #4a7c59; font-weight: 500; }
+
+/* Bouton "Add household member" pleine largeur */
+.settings-add-member {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #4a7c59;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+.settings-add-member:hover { background: #3f6b4c; }
+
+/* ---------- Logout ---------- */
+.settings-logout {
+  width: 100%;
+  background: #e5484d;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.settings-logout:hover { background: #d43a3f; }

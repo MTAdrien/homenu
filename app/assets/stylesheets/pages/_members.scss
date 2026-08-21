@@ -1,10 +1,97 @@
-.members-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+/* Carte principale membres (blanche, arrondie) */
+.members-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px 16px;
+  position: relative;
+  overflow: hidden;
 }
 
-.member-item {
-  margin-bottom: 8px;
+/* Titre + compteur */
+.members-head { margin-bottom: 16px; }
+.members-head h2 { font-size: 22px; font-weight: 700; margin: 0 0 4px; color: #1a1a1a; }
+.members-count {
+  display: flex; align-items: center; gap: 6px;
+  color: #4a7c59; font-size: 14px; font-weight: 500; margin: 0;
+}
+
+/* Ligne membre = rectangle beige arrondi */
+.member-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f5f1e8;          /* beige */
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.member-row:last-of-type { margin-bottom: 16px; }
+
+.member-identity { display: flex; align-items: center; gap: 12px; }
+.member-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 600; font-size: 17px;
+  flex-shrink: 0;
+}
+.member-text { display: flex; flex-direction: column; }
+.member-name { font-weight: 600; font-size: 15px; color: #1a1a1a; }
+.member-role { font-size: 13px; color: #4a7c59; margin-top: 2px; }  /* rôle en vert */
+
+/* Menu trois-points */
+.member-menu { position: relative; }
+.member-menu summary {
+  list-style: none; cursor: pointer;
+  padding: 6px 10px; color: #8a8f88;
+}
+.member-menu summary::-webkit-details-marker { display: none; }
+.member-menu-list {
+  position: absolute; right: 0; top: 100%;
+  background: #fff; border: 1px solid #eee;
+  border-radius: 10px; padding: 6px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  display: flex; flex-direction: column; gap: 4px;
+  min-width: 120px; z-index: 10;
+}
+.member-menu-list a { text-decoration: none; padding: 8px 12px; border-radius: 6px; font-size: 14px; color: #323533; }
+.member-menu-list a:hover { background: #f5f5f3; }
+.member-menu-list a:last-child { color: #e5484d; }  /* Retirer en rouge */
+
+.members-add {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: #4a7c59; font-weight: 500; font-size: 14px;
+  text-decoration: none;
+}
+
+.member-menu-form {
+  margin: 0;
+  width: 100%;
+}
+
+.member-menu-item {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.9rem;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+.member-menu-item:hover {
+  background: #f3f4f6;
+}
+
+.member-menu-item--danger {
+  color: #dc2626;
+}
+
+.member-menu-item--danger:hover {
+  background: #fee2e2;
 }

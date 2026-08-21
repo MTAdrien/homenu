@@ -1,0 +1,18 @@
+<div class="form-container">
+  <div class="form-card">
+    <div class="form-header">
+      <div class="form-logo">
+        <%= image_tag "homenu_logo.png", alt: "HomeNu Logo" %>
+      </div>
+      <h1>Edit member</h1>
+    </div>
+
+    <%= turbo_frame_tag "member-form" do %>
+      <%= render "form", household: @household, member: @member %>
+    <% end %>
+
+    <div class="form-actions">
+      <%= link_to "Cancel", settings_path, class: "btn btn-secondary w-100" %>
+    </div>
+  </div>
+</div>

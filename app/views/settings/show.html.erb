@@ -1,0 +1,91 @@
+<div class="settings-page">
+
+  <%# --- Header --- %>
+  <header class="settings-header">
+    <%= link_to household_path(@household), class: "settings-back" do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+    <h1>Household</h1>
+    <i class="fa-solid fa-circle-user settings-profile"></i>
+  </header>
+
+  <section class="settings-section">
+    <div class="members-card">
+      <div class="members-head">
+        <h2><%= @household.name %></h2>
+        <p class="members-count">
+          <i class="fa-solid fa-user-group"></i>
+          <%= pluralize(@household.members.count, "Member") %>
+        </p>
+      </div>
+
+      <% @household.members.each do |member| %>
+        <div class="member-row">
+          <div class="member-identity">
+            <span class="member-avatar" style="background: <%= avatar_color(member.first_name) %>">
+              <%= member.first_name.to_s.first.to_s.upcase %>
+            </span>
+
+            <div class="member-text">
+              <span class="member-name"><%= member.first_name %></span>
+              <span class="member-role">
+                <% if member.role == "admin" %>
+                  Parent • Owner
+                <% else %>
+                  <%= member.role.capitalize %>
+                <% end %>
+              </span>
+            </div>
+          </div>
+
+          <%# Menu trois-points %>
+          <details class="member-menu">
+            <summary><i class="fa-solid fa-ellipsis-vertical"></i></summary>
+            <div class="member-menu-list">
+              <%= button_to "Modify", edit_household_member_path(@household, member),
+                    method: :get,
+                    form_class: "member-menu-form",
+                    class: "member-menu-item" %>
+
+              <%= button_to "Delete", household_member_path(@household, member),
+                    method: :delete,
+                    form_class: "member-menu-form",
+                    class: "member-menu-item member-menu-item--danger",
+                    data: { turbo_confirm: "Delete this member ?" } %>
+            </div>
+          </details>
+        </div>
+      <% end %>
+
+      <%= link_to new_household_member_path(@household), class: "members-add" do %>
+        <i class="fa-solid fa-plus"></i> Add a member
+      <% end %>
+    </div>
+  </section>
+
+  <%# --- Household Info --- %>
+  <section class="settings-section">
+    <h3 class="settings-label">INFOS</h3>
+    <div class="settings-card">
+      <div class="settings-item">
+        <span>Nom du foyer</span>
+        <span class="settings-value"><%= @household.name %></span>
+      </div>
+      <div class="settings-item">
+        <span>Créé le</span>
+        <span class="settings-value"><%= @household.created_at.strftime("%-d %b %Y") %></span>
+      </div>
+      <%= link_to edit_household_path(@household), class: "settings-item settings-item--link" do %>
+        <span>Modifier le foyer</span>
+        <i class="fa-solid fa-chevron-right"></i>
+      <% end %>
+    </div>
+  </section>
+
+  <%# --- Déconnexion --- %>
+  <%= button_to "Disconnect", destroy_user_session_path,
+        method: :delete, class: "settings-logout" %>
+
+</div>
+
+<%= render "shared/navbar" %>

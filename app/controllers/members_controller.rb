@@ -1,6 +1,7 @@
 class MembersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_household
+  before_action :set_member, only: [:edit, :update, :destroy]
 
   def new
     @member = @household.members.new
@@ -27,10 +28,30 @@ class MembersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @member.update(member_params)
+      redirect_to settings_path, notice: "Membre mis à jour."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @member.destroy
+    redirect_to settings_path, notice: "Membre retiré.", status: :see_other
+  end
+
   private
 
   def set_household
     @household = Household.find(params[:household_id])
+  end
+
+  def set_member
+    @member = @household.members.find(params[:id])
   end
 
   def member_params
