@@ -23,7 +23,7 @@
     <div class="chat-assistant-content">
 
       <div class="chat-message-assistant">
-        <%= message.content.present? ? message.content : "..." %>
+        <%= message.content.present? ? markdown(message.content) : "..." %>
       </div>
 
       <span class="chat-time">

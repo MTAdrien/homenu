@@ -1,13 +1,12 @@
 
 // CHAT PAGE
 
-
 .chat-page {
   width: 100%;
   max-width: 420px;
   height: 100vh;
   margin: 0 auto;
-  padding: 20px 20px 72px;
+  padding: 20px 20px 90px;
 
   display: flex;
   flex-direction: column;
@@ -16,10 +15,7 @@
   color: #202020;
 }
 
-
-
 // HEADER
-
 
 .chat-topbar {
   display: flex;
@@ -40,10 +36,7 @@
   font-weight: 700;
 }
 
-
-
 // INTRO
-
 
 .chat-intro {
   margin-bottom: 28px;
@@ -69,10 +62,7 @@
   line-height: 1.4;
 }
 
-
-
 // CONVERSATION
-
 
 .chat-conversation {
   flex: 1;
@@ -83,10 +73,7 @@
   gap: 18px;
 }
 
-
-
 // USER MESSAGE
-
 
 .chat-message-row-user {
   display: flex;
@@ -108,10 +95,7 @@
   line-height: 1.45;
 }
 
-
-
 // TIME
-
 
 .chat-time {
   display: block;
@@ -123,10 +107,7 @@
   font-size: 9px;
 }
 
-
-
 // ASSISTANT MESSAGE
-
 
 .chat-assistant-row {
   display: flex;
@@ -163,7 +144,7 @@
 
   padding: 12px 14px;
 
-  background-color: #f4f1ef;
+  background: #e2f3eb;
   color: #202020;
 
   border-radius: 4px 16px 16px 16px;
@@ -172,9 +153,7 @@
   line-height: 1.5;
 }
 
-
 // MESSAGE INPUT
-
 
 .chat-composer {
   width: 100%;
@@ -214,10 +193,7 @@
   color: #999;
 }
 
-
-
 // SEND BUTTON
-
 
 .chat-send-button {
   width: 44px;
@@ -242,10 +218,7 @@
   border-color: #244f43;
 }
 
-
-
 // MOBILE
-
 
 @media (max-width: 420px) {
   .chat-page {
@@ -262,4 +235,65 @@
   .chat-message-assistant {
     max-width: 95%;
   }
+}
+
+// MARKDOWN RECIPE STYLE
+
+.chat-message-assistant {
+  width: 100%;
+  max-width: 100%;
+
+  padding: 18px;
+
+  background: #eaf7f1;
+  border-radius: 18px;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.chat-message-assistant h2 {
+  margin: 0 0 14px;
+
+  color: #2f584a;
+
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.chat-message-assistant h3 {
+  margin: 18px 0 8px;
+
+  color: #3e6658;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.chat-message-assistant p {
+  margin: 6px 0;
+}
+
+.chat-message-assistant strong {
+  color: #3e6658;
+  font-weight: 700;
+}
+
+.chat-message-assistant ul,
+.chat-message-assistant ol {
+  margin: 8px 0 4px;
+  padding-left: 20px;
+}
+
+.chat-message-assistant li {
+  margin-bottom: 5px;
+  line-height: 1.5;
+}
+
+.chat-message-assistant li::marker {
+  color: #3e6658;
+  font-weight: 700;
 }
