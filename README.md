@@ -315,13 +315,4 @@ config/
 db/                   # migrations et schéma
 test/                 # Minitest + fixtures
 ```
-
-## Contribuer
-
-1. Créez une branche depuis `master` (`feature/…`, `fix/…`, `qol/…`).
-2. Vérifiez `bin/rubocop` et `bin/rails test` avant de pousser.
-3. Ouvrez une pull request : la CI doit être verte avant merge.
-
----
-
 <p align="center">Fait avec 🍳 par l'équipe HomeNu.</p>
