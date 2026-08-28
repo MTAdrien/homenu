@@ -47,7 +47,7 @@ class MembersController < ApplicationController
   private
 
   def set_household
-    @household = Household.find(params[:household_id])
+    @household = accessible_households.find(params[:household_id])
   end
 
   def set_member
