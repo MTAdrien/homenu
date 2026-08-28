@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
     @current_household ||= current_user&.households&.first
   end
   helper_method :current_household
+
+  # Foyers auxquels l'utilisateur courant a acces : ceux dont il est membre,
+  # et celui qu'il vient de creer (il n'a pas encore de Member a cet instant).
+  def accessible_households
+    Household.where(id: current_user.household_ids + current_user.owned_household_ids)
+  end
 end
